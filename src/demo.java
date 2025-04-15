@@ -13,6 +13,7 @@ public class demo {
         listBarang[4] = new barang("Br005", "Mama Lemon Cair", "Sabun", 10, 1000);
 
         while (true) {
+            System.out.println();
             System.out.println("================== Toko Manasuka ==================");
             System.out.println("BANK MENU:");
             System.out.println("1. Data Barang");
@@ -24,7 +25,11 @@ public class demo {
             int menu = sc.nextInt();
 
             if (menu == 1) {
-                
+                System.out.println();
+                System.out.printf("%-15s %-15s %-15s %-15s %-15s\n", "Kode Barang", "Nama barang", "Kategori", "Stock", "Harga");
+                for (int i = 0; i < listBarang.length; i++) {
+                    listBarang[i].tampilDataBarang();
+                }
             }
         }
     }
