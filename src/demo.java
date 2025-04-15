@@ -11,9 +11,8 @@ public class demo {
             System.out.println("2. Data Transaksi");
             System.out.println("3. Pencarian Data");
             System.out.println("4. Pengurutan Data");
-            System.out.println("5. Tampilkan Kode Terbalik");
-            System.out.println("6. Exit");
-            System.out.print("Choose Menu(1-6): ");
+            System.out.println("5. Exit");
+            System.out.print("Choose Menu(1-5): ");
 
         }
     }
