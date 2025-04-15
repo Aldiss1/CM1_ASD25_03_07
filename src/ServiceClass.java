@@ -1,14 +1,14 @@
 public class ServiceClass {
-    
+
     TransaksiPembelian[] trs = new TransaksiPembelian[5];
     int index;
 
     void tambahDataTransaksi(TransaksiPembelian trP) {
         int count = 0;
-        if ((count+1) < trs.length) {
+        if ((count + 1) < trs.length) {
             trs[index] = trP;
             index++;
-            count+=index;
+            count += index;
         } else {
             System.out.println();
             System.out.println("DATA SUDAH PENUH");
@@ -33,4 +33,26 @@ public class ServiceClass {
         return posisi;
     }
 
+    void sorting() {
+        for (int i = 0; i < trs.length - 1; i++) {
+            for (int j = i + 1; j < trs.length; j++) {
+                if (trs[i] != null && trs[j] != null && trs[i].brg.kodeBarang.compareTo(trs[j].brg.kodeBarang) > 0) {
+                    TransaksiPembelian temp = trs[i];
+                    trs[i] = trs[j];
+                    trs[j] = temp;
+                }
+            }
+        }
+
+        System.out.println("Data telah diurutkan berdasarkan kode barang!");
+        tampilDataTransaksi();
+    }
+
+    void tampilDataTransaksi() {
+        for (int i = 0; i < trs.length; i++) {
+            if (trs[i] != null) {
+                trs[i].tampilDataTransaksi();
+            }
+        }
+    }
 }
