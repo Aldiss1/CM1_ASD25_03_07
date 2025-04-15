@@ -20,6 +20,14 @@ public class demo {
         listTransaksi[3] = new TransaksiPembelian("Tr004", "MeiMei", "23-04-2024", 1, listBarang[3]);
         listTransaksi[4] = new TransaksiPembelian("Tr005", "Ihsan", "24-04-2024", 1, listBarang[4]);
 
+        ServiceClass list = new ServiceClass();
+
+        list.tambahDataTransaksi(listTransaksi[0]);
+        list.tambahDataTransaksi(listTransaksi[1]);
+        list.tambahDataTransaksi(listTransaksi[2]);
+        list.tambahDataTransaksi(listTransaksi[3]);
+        list.tambahDataTransaksi(listTransaksi[4]);
+
         while (true) {
             System.out.println();
             System.out.println("================== Toko Manasuka ==================");
@@ -34,37 +42,24 @@ public class demo {
 
             if (menu == 1) {
                 System.out.println();
-                System.out.printf("%-15s %-15s  %-15s %-15s %-15s\n", "Kode Barang", "Nama barang", "Kategori", "Stock",
-                        "Harga");
+                System.out.printf("%-15s %-15s  %-15s %-15s %-15s\n", "Kode Barang", "Nama barang", "Kategori", "Stock","Harga");
                 for (int i = 0; i < listBarang.length; i++) {
                     listBarang[i].tampilDataBarang();
                 }
             } else if (menu == 2) {
                 System.out.println();
-                System.out.printf("%-15s %-15s %-15s   %-15s %-15s %-15s\n", "Kode Transaksi", "Nama Pembeli",
-                        "Tanggal Pembelian", "Nama Barang", "Kuantitas", "Harga");
+                System.out.printf("%-15s %-15s %-15s   %-15s %-15s %-15s\n", "Kode Transaksi", "Nama Pembeli", "Tanggal Pembelian", "Nama Barang", "Kuantitas", "Harga");
                 for (int i = 0; i < listBarang.length; i++) {
                     listTransaksi[i].tampilDataTransaksi();
                 }
             } else if (menu == 3) {
-                System.out.println("=== Pencarian Data Berdasarkan Kode Barang ===");
-                System.out.print("Masukkan Kode Barang yang dicari: ");
-                String kodeBarangCari = sc.next();
-                boolean found = false;
-
-                for (int i = 0; i < listBarang.length; i++) {
-                    if (listBarang[i].kodeBarang.equalsIgnoreCase(kodeBarangCari)) {
-                        System.out.printf("%-15s %-15s  %-15s %-15s %-15s\n", "Kode Barang", "Nama barang", "Kategori",
-                                "Stock",
-                                "Harga");
-                        listBarang[i].tampilDataBarang();
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found) {
-                    System.out.println("Barang dengan kode " + kodeBarangCari + " tidak ditemukan.");
-                }
+                System.out.println();
+                System.out.print("Masukkan Kode Barang yang ingin dicari: ");
+                sc.nextLine();
+                String cari = sc.nextLine();
+                System.out.println();
+                int posisi = list.searching(cari);
+                list.tampilDataPosisi(posisi);
             }
         }
     }
