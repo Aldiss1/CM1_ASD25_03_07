@@ -34,18 +34,15 @@ public class ServiceClass {
     }
 
     void sorting() {
-        for (int i = 0; i < trs.length - 1; i++) {
-            for (int j = i + 1; j < trs.length; j++) {
-                if (trs[i] != null && trs[j] != null && trs[i].brg.kodeBarang.compareTo(trs[j].brg.kodeBarang) > 0) {
-                    TransaksiPembelian temp = trs[i];
-                    trs[i] = trs[j];
-                    trs[j] = temp;
+        for (int i = 0; i < trs.length - 1; i++) { 
+            for (int j = 0; j < trs.length - 1 - i; j++) { 
+                if (trs[j].brg.kodeBarang.compareTo(trs[j + 1].brg.kodeBarang) > 0) {
+                    TransaksiPembelian temp = trs[j];
+                    trs[j] = trs[j + 1];
+                    trs[j + 1] = temp;
                 }
             }
         }
-
-        System.out.println("Data telah diurutkan berdasarkan kode barang!");
-        tampilDataTransaksi();
     }
 
     void tampilDataTransaksi() {
