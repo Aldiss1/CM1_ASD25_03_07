@@ -12,6 +12,14 @@ public class demo {
         listBarang[3] = new barang("Br004", "Rinso Cair", "Sabun", 10, 7000);
         listBarang[4] = new barang("Br005", "Mama Lemon Cair", "Sabun", 10, 1000);
 
+        TransaksiPembelian[] listTransaksi = new TransaksiPembelian[5];
+
+        listTransaksi[0] = new TransaksiPembelian("Tr001", "Santi", "21-04-2024", 1, listBarang[0]);
+        listTransaksi[1] = new TransaksiPembelian("Tr002", "Vani", "21-04-2024", 2, listBarang[1]);
+        listTransaksi[2] = new TransaksiPembelian("Tr003", "Siska", "23-04-2024", 3, listBarang[2]);
+        listTransaksi[3] = new TransaksiPembelian("Tr004", "MeiMei", "23-04-2024", 1, listBarang[3]);
+        listTransaksi[4] = new TransaksiPembelian("Tr005", "Ihsan", "24-04-2024", 1, listBarang[4]);
+
         while (true) {
             System.out.println();
             System.out.println("================== Toko Manasuka ==================");
@@ -26,9 +34,15 @@ public class demo {
 
             if (menu == 1) {
                 System.out.println();
-                System.out.printf("%-15s %-15s %-15s %-15s %-15s\n", "Kode Barang", "Nama barang", "Kategori", "Stock", "Harga");
+                System.out.printf("%-15s %-15s  %-15s %-15s %-15s\n", "Kode Barang", "Nama barang", "Kategori", "Stock", "Harga");
                 for (int i = 0; i < listBarang.length; i++) {
                     listBarang[i].tampilDataBarang();
+                }
+            } else if (menu == 2) {
+                System.out.println();
+                System.out.printf("%-15s %-15s %-15s   %-15s %-15s %-15s\n", "Kode Transaksi", "Nama Pembeli", "Tanggal Pembelian", "Nama Barang", "Kuantitas", "Harga");
+                for (int i = 0; i < listBarang.length; i++) {
+                    listTransaksi[i].tampilDataTransaksi();
                 }
             }
         }

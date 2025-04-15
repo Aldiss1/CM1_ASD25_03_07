@@ -15,10 +15,6 @@ public class TransaksiPembelian {
     }
 
     void tampilDataTransaksi() {
-        System.out.println("Kode Transaksi : " + kodeTransaksi);
-        System.out.println("Nama Pembeli : " + namaPembeli);
-        System.out.println("Tanggal Pembelian : " + tanggalPembelian);
-        System.out.println("Banyak barang : " + qty);
-        System.out.println("barang : " + brg);
+        System.out.printf("%-15s %-15s    %-15s  %-15s     %-12d%-15d\n", kodeTransaksi, namaPembeli, tanggalPembelian, brg.nama, qty, brg.harga);
     }
 }
