@@ -42,13 +42,15 @@ public class demo {
 
             if (menu == 1) {
                 System.out.println();
-                System.out.printf("%-15s %-15s  %-15s %-15s %-15s\n", "Kode Barang", "Nama barang", "Kategori", "Stock","Harga");
+                System.out.printf("%-15s %-15s  %-15s %-15s %-15s\n", "Kode Barang", "Nama barang", "Kategori", "Stock",
+                        "Harga");
                 for (int i = 0; i < listBarang.length; i++) {
                     listBarang[i].tampilDataBarang();
                 }
             } else if (menu == 2) {
                 System.out.println();
-                System.out.printf("%-15s %-15s %-15s   %-15s %-15s %-15s\n", "Kode Transaksi", "Nama Pembeli", "Tanggal Pembelian", "Nama Barang", "Kuantitas", "Harga");
+                System.out.printf("%-15s %-15s %-15s   %-15s %-15s %-15s\n", "Kode Transaksi", "Nama Pembeli",
+                        "Tanggal Pembelian", "Nama Barang", "Kuantitas", "Harga");
                 for (int i = 0; i < listBarang.length; i++) {
                     listTransaksi[i].tampilDataTransaksi();
                 }
@@ -60,6 +62,18 @@ public class demo {
                 System.out.println();
                 int posisi = list.searching(cari);
                 list.tampilDataPosisi(posisi);
+            } else if (menu == 4) {
+                System.out.println("pengurutan Data barang berdasarkan Kode Barang: ");
+                list.sorting(listBarang);
+                System.out.println();
+                System.out.printf("%-15s %-15s  %-15s %-15s %-15s\n", "Kode Barang", "Nama barang", "Kategori", "Stock",
+                        "Harga");
+                for (int i = 0; i < listBarang.length; i++) {
+                    listBarang[i].tampilDataBarang();
+                }
+            } else if (menu == 5) {
+                System.out.println("Good Bye!");
+                System.exit(0);
             }
         }
     }
